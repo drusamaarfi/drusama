@@ -15,7 +15,7 @@
         /* General Setup */
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
         
-        /* ================= HEADER & NAVIGATION THEME ================= */
+        /* HEADER */
         header { background-color: #ffffff; padding: 15px 10%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
         .logo { display: flex; align-items: center; font-size: 24px; font-weight: 800; color: #0b3d60; letter-spacing: 0.5px; }
         .logo i { color: #25D366; margin-right: 10px; font-size: 28px; }
@@ -30,136 +30,96 @@
         @media (max-width: 900px) {
             header { flex-direction: column; gap: 15px; padding: 15px 5%; }
             .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
-            .nav-links a { font-size: 14px; }
-            .appointment-btn, .header-btn { padding: 8px 12px; font-size: 13px; }
         }
 
-        /* Public Website Sections */
+        /* PUBLIC WEBSITE */
         .hero { background-color: #0b3d60; color: white; padding: 60px 10%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; position: relative; overflow: hidden; }
         .hero::after { content: ''; position: absolute; width: 400px; height: 400px; background: rgba(255,255,255,0.05); border-radius: 50%; right: -100px; top: -100px; }
         .hero-text { max-width: 50%; min-width: 300px; z-index: 1; }
         .hero-text h2 { font-size: 40px; margin-bottom: 15px; font-weight: 800; line-height: 1.2; }
         .hero-text p { font-size: 18px; margin-bottom: 30px; line-height: 1.7; color: #e0eaf5; }
-        .btn { background-color: #25D366; color: white; padding: 14px 28px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
-        .btn:hover { background-color: #128C7E; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(18, 140, 126, 0.5); }
+        .btn { background-color: #25D366; color: white; padding: 14px 28px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn:hover { background-color: #128C7E; transform: translateY(-2px); }
         .hero-image { text-align: center; z-index: 1; }
-        .hero-image img { width: 100%; max-width: 320px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 4px solid rgba(255,255,255,0.1); }
+        .hero-image img { width: 100%; max-width: 320px; border-radius: 15px; border: 4px solid rgba(255,255,255,0.1); }
         
         .services { padding: 80px 10%; background-color: #f4f7f6; text-align: center; }
-        .services h3 { color: #0b3d60; font-size: 36px; margin-bottom: 50px; font-weight: 800; letter-spacing: 1px; }
+        .services h3 { color: #0b3d60; font-size: 36px; margin-bottom: 50px; font-weight: 800; }
         .service-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .service-card { background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); width: 30%; min-width: 300px; overflow: hidden; transition: all 0.4s ease; text-align: left; border: 1px solid #f0f0f0; }
-        .service-card:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-bottom: 5px solid #25D366; }
-        .service-img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.6s ease; }
+        .service-card { background: white; border-radius: 15px; width: 30%; min-width: 300px; overflow: hidden; transition: 0.4s; border: 1px solid #f0f0f0; }
+        .service-card:hover { transform: translateY(-12px); border-bottom: 5px solid #25D366; }
+        .service-img { width: 100%; height: 220px; object-fit: cover; transition: 0.6s; }
         .service-card:hover .service-img { transform: scale(1.08); }
-        .service-content { padding: 30px; position: relative; z-index: 1; background: white; }
-        .service-content h4 { color: #0b3d60; margin-top: 0; font-size: 22px; margin-bottom: 12px; font-weight: 700; }
-        .service-content p { color: #666; font-size: 15px; line-height: 1.7; margin: 0; }
+        .service-content { padding: 30px; background: white; text-align: left; }
+        .service-content h4 { color: #0b3d60; margin-top: 0; font-size: 22px; }
+        .service-content p { color: #666; font-size: 15px; }
 
         .content { padding: 80px 10%; background-color: white; }
-        .content h3 { color: #0b3d60; font-size: 32px; font-weight: 800; margin-bottom: 20px; }
-        .content p { font-size: 17px; line-height: 1.8; color: #555; }
-        
-        footer { background-color: #0b3d60; color: white; text-align: center; padding: 25px 10%; margin-top: auto; border-top: 5px solid #25D366; }
-        footer p { margin: 5px 0; font-size: 16px; }
+        footer { background-color: #0b3d60; color: white; text-align: center; padding: 25px 10%; border-top: 5px solid #25D366; }
 
-        /* ================= ANIMATIONS ================= */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* ================= PROFESSIONAL TOAST NOTIFICATIONS ================= */
+        /* TOAST NOTIFICATIONS */
         #toast-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px; }
-        .toast { background: white; border-left: 6px solid #25D366; box-shadow: 0 10px 40px rgba(0,0,0,0.15); padding: 18px 25px; border-radius: 10px; display: flex; align-items: center; gap: 15px; transform: translateX(150%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); min-width: 250px; }
+        .toast { background: white; border-left: 6px solid #25D366; box-shadow: 0 10px 40px rgba(0,0,0,0.15); padding: 18px 25px; border-radius: 10px; display: flex; align-items: center; gap: 15px; transform: translateX(150%); transition: 0.4s; min-width: 250px; }
         .toast.show { transform: translateX(0); }
         .toast.error { border-left-color: #d9534f; }
         .toast i { font-size: 24px; }
         .toast.success i { color: #25D366; }
         .toast.error i { color: #d9534f; }
-        .toast-text { color: #333; font-weight: 700; font-size: 15px; font-family: 'Segoe UI', sans-serif; }
 
-        /* ================= PORTAL SYSTEM ================= */
-        #portal-container { display: none; padding: 40px 10%; background-color: #f4f7f6; min-height: 85vh; animation: fadeIn 0.4s ease; }
+        /* PORTAL SYSTEM */
+        #portal-container { display: none; padding: 40px 10%; background-color: #f4f7f6; min-height: 85vh; }
         .portal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .back-btn { background: #e0e6ed; color: #0b3d60; padding: 10px 20px; border-radius: 8px; cursor: pointer; border: none; font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
-        .back-btn:hover { background: #cbd4df; }
+        .back-btn { background: #e0e6ed; color: #0b3d60; padding: 10px 20px; border-radius: 8px; cursor: pointer; border: none; font-weight: bold; }
         
         .portal-section { display: none; }
         .active-portal { display: block; }
         
-        /* Premium Login Layout */
-        .login-wrapper { display: flex; max-width: 850px; margin: 50px auto; background: white; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.1); overflow: hidden; animation: fadeInUp 0.7s ease-out; }
-        .login-info { background: linear-gradient(135deg, #0b3d60, #165b8c); padding: 50px 40px; width: 45%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; overflow: hidden; }
-        .login-info::before { content: ''; position: absolute; width: 200px; height: 200px; background: rgba(255,255,255,0.05); border-radius: 50%; top: -50px; left: -50px; }
-        .login-info i { font-size: 50px; color: #25D366; margin-bottom: 20px; z-index: 1; }
-        .login-info h3 { color: white; font-size: 28px; font-weight: 800; margin-bottom: 15px; z-index: 1; }
-        .login-info p { color: #d1e8ff; font-size: 15px; line-height: 1.6; z-index: 1; }
+        /* LOGIN */
+        .login-wrapper { display: flex; max-width: 850px; margin: 50px auto; background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+        .login-info { background: linear-gradient(135deg, #0b3d60, #165b8c); padding: 50px 40px; width: 45%; color: white; text-align: center; }
+        .login-box-new { padding: 60px 50px; width: 55%; text-align: center; }
+        .google-btn-new { background-color: white; color: #444; border: 1px solid #dcdcdc; padding: 14px 24px; border-radius: 50px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px; margin: auto; }
         
-        .login-box-new { padding: 60px 50px; width: 55%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: white; }
-        .login-box-new h2 { color: #0b3d60; font-size: 32px; font-weight: 800; margin-top: 0; margin-bottom: 10px; }
-        .login-box-new p { color: #666; margin-bottom: 40px; font-size: 16px; }
+        /* CARDS & TABLES */
+        .card { background: white; padding: 35px; border-radius: 16px; margin-bottom: 25px; border: 1px solid #f0f0f0; }
+        .search-bar { width: 100%; padding: 12px 15px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px; font-size: 15px; box-sizing: border-box; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
+        th { background-color: #0b3d60; color: white; }
         
-        .google-btn-new { background-color: white; color: #444; border: 1px solid #dcdcdc; padding: 14px 24px; border-radius: 50px; font-weight: 600; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.04); width: 100%; max-width: 300px; }
-        .google-btn-new img { width: 22px; height: 22px; }
-        .google-btn-new:hover { box-shadow: 0 6px 15px rgba(0,0,0,0.1); transform: translateY(-2px); border-color: #ccc; background-color: #fcfcfc; }
-        .secure-badge { margin-top: 30px; font-size: 13px; color: #888; display: flex; align-items: center; gap: 8px; font-weight: 500; }
-        .secure-badge i { color: #25D366; }
+        .prescription-item { background: #ffffff; padding: 25px; border-radius: 12px; margin-top: 15px; border-left: 6px solid #25D366; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .doctor-reply-box { background: #e6f2ff; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #007bff; font-weight: 500; }
 
-        /* Dashboard Cards */
-        .card { background: white; padding: 35px; border-radius: 16px; box-shadow: 0 5px 20px rgba(0,0,0,0.04); margin-bottom: 25px; border: 1px solid #f0f0f0; animation: fadeInUp 0.5s ease-out; }
-        .card h3 { color: #0b3d60; font-size: 24px; margin-top: 0; }
-        
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #eee; }
-        th { background-color: #0b3d60; color: white; font-weight: 600; border-radius: 4px; }
-        
-        .prescription-item { background: #ffffff; padding: 25px; border-radius: 12px; margin-top: 15px; border-left: 6px solid #25D366; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; border: 1px solid #f0f0f0; }
-        .prescription-item:hover { transform: translateX(5px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
-        .prescription-item h4 { margin: 0 0 15px 0; color: #0b3d60; font-size: 20px; display: flex; justify-content: space-between; align-items: center; }
-        .prescription-text { background: #f8fbf9; padding: 20px; border-radius: 8px; font-family: 'Segoe UI', monospace; font-size: 16px; color: #444; white-space: pre-wrap; margin: 0; border: 1px dashed #cce7d3; line-height: 1.6; }
-
-        /* Forms */
+        /* FORMS */
         .form-group { margin-bottom: 20px; text-align: left; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: inherit; font-size: 15px; transition: 0.3s; }
-        .form-group input:focus, .form-group textarea:focus { border-color: #0b3d60; outline: none; box-shadow: 0 0 0 3px rgba(11, 61, 96, 0.1); }
-        .submit-btn { background-color: #0b3d60; color: white; width: 100%; padding: 15px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .submit-btn:hover { background-color: #082d47; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(11,61,96,0.3); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: inherit; }
+        .submit-btn { background-color: #0b3d60; color: white; width: 100%; padding: 15px; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; }
 
-        /* Modal Settings */
-        .modal { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); backdrop-filter: blur(5px); }
-        .modal-content { background-color: white; margin: 5% auto; padding: 40px; border-radius: 16px; width: 90%; max-width: 450px; position: relative; animation: fadeInUp 0.4s ease-out; box-shadow: 0 20px 50px rgba(0,0,0,0.2); }
-        .close { position: absolute; right: 25px; top: 20px; font-size: 30px; cursor: pointer; color: #aaa; transition: 0.3s; }
-        .close:hover { color: #333; }
-
+        /* MODALS */
+        .modal { display: none; position: fixed; z-index: 999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); }
+        .modal-content { background-color: white; margin: 5% auto; padding: 30px; border-radius: 16px; width: 90%; max-width: 500px; position: relative; }
+        .close { position: absolute; right: 25px; top: 20px; font-size: 30px; cursor: pointer; color: #aaa; }
+        
         @media (max-width: 768px) {
-            .hero { text-align: center; justify-content: center; padding: 40px 5%; }
-            .hero-text { max-width: 100%; margin-bottom: 40px; }
-            .service-card { width: 100%; }
             .login-wrapper { flex-direction: column; }
-            .login-info { width: 100%; padding: 40px 30px; box-sizing: border-box; }
-            .login-box-new { width: 100%; padding: 50px 30px; box-sizing: border-box; }
+            .login-info, .login-box-new { width: 100%; box-sizing: border-box; }
         }
     </style>
 </head>
 <body>
 
+    <audio id="alert-sound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
+
     <div id="toast-container"></div>
 
     <header>
-        <div class="logo">
-            <i class="fa-solid fa-stethoscope"></i> DR. USAMA ARFI
-        </div>
+        <div class="logo"><i class="fa-solid fa-stethoscope"></i> DR. USAMA ARFI</div>
         <div class="nav-links">
             <a href="javascript:void(0)" onclick="closePortal(); document.querySelector('.services').scrollIntoView({behavior: 'smooth'});">Services</a>
             <a href="javascript:void(0)" onclick="closePortal(); document.querySelector('footer').scrollIntoView({behavior: 'smooth'});">Contact</a>
-            
-            <button class="appointment-btn" onclick="handleAppointmentClick()">
-                <i class="fa-regular fa-calendar-check"></i> Appointment
-            </button>
-            
-            <button class="header-btn" id="portal-toggle-btn" onclick="openPortal()">
-                Patient Portal <i class="fa-solid fa-user-lock"></i>
-            </button>
+            <button class="appointment-btn" onclick="handleAppointmentClick()"><i class="fa-regular fa-calendar-check"></i> Appointment</button>
+            <button class="header-btn" onclick="openPortal()">Patient Portal <i class="fa-solid fa-user-lock"></i></button>
         </div>
     </header>
 
@@ -170,41 +130,25 @@
                 <p>Compassionate healthcare services. Expertise in emergency care, OPD, and pharmacy. Your health is my first priority.</p>
                 <button class="btn" onclick="handleAppointmentClick()">Book Appointment</button>
             </div>
-            <div class="hero-image">
-                <img src="./eaf919f9-1e47-4c97-9dab-32958c6a5330-1_all_60.jpg" alt="Dr Usama Arfi">
-            </div>
+            <div class="hero-image"><img src="./eaf919f9-1e47-4c97-9dab-32958c6a5330-1_all_60.jpg" alt="Dr Usama Arfi"></div>
         </section>
-
+        
         <section class="services">
             <h3>My Specialised Services</h3>
             <div class="service-container">
                 <div class="service-card">
                     <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?w=500&q=80" class="service-img">
-                    <div class="service-content">
-                        <h4>General OPD & Vitals</h4>
-                        <p>Comprehensive routine checkups, blood pressure monitoring, and overall health assessments.</p>
-                    </div>
+                    <div class="service-content"><h4>General OPD & Vitals</h4><p>Comprehensive routine checkups and health assessments.</p></div>
                 </div>
                 <div class="service-card">
                     <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&q=80" class="service-img">
-                    <div class="service-content">
-                        <h4>Emergency First Aid</h4>
-                        <p>Expert handling of acute medical situations, injuries, and urgent trauma care.</p>
-                    </div>
+                    <div class="service-content"><h4>Emergency First Aid</h4><p>Expert handling of acute medical situations and injuries.</p></div>
                 </div>
                 <div class="service-card">
                     <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&q=80" class="service-img">
-                    <div class="service-content">
-                        <h4>Medication Guidance</h4>
-                        <p>Professional advice on prescriptions, safe dosage management, and avoiding drug interactions.</p>
-                    </div>
+                    <div class="service-content"><h4>Medication Guidance</h4><p>Professional advice on prescriptions and safe dosage.</p></div>
                 </div>
             </div>
-        </section>
-
-        <section class="content">
-            <h3>About Dr. Arfi</h3>
-            <p>Bringing hands-on expertise from rigorous clinical internships and professional healthcare environments. Skilled in managing acute medical situations, routine patient check-ups, and ensuring optimal care delivery in high-pressure medical settings.</p>
         </section>
 
         <footer>
@@ -212,6 +156,8 @@
             <p>Phone: +92 324 6767582</p>
         </footer>
     </div>
+
+
     <div id="portal-container">
         <div class="portal-header">
             <button class="back-btn" onclick="closePortal()"><i class="fa-solid fa-arrow-left"></i> Back to Website</button>
@@ -230,14 +176,9 @@
                 </div>
                 <div class="login-box-new">
                     <h2>Welcome</h2>
-                    <p>Please sign in to continue</p>
                     <button class="google-btn-new" onclick="loginWithGoogle()">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo">
-                        Sign in with Google
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google Logo"> Sign in with Google
                     </button>
-                    <div class="secure-badge">
-                        <i class="fa-solid fa-lock"></i> End-to-end Encrypted System
-                    </div>
                 </div>
             </div>
         </div>
@@ -245,28 +186,50 @@
         <div id="patient-section" class="portal-section">
             <div class="card" style="border-top: 5px solid #25D366;">
                 <h3><i class="fa-solid fa-heart-pulse"></i> Your Medical Dashboard</h3>
-                <p>Welcome! Yahan aap Dr. Usama ki taraf se di gayi dawaiyan aur hidayat dekh sakte hain.</p>
-                <button class="btn" onclick="openModal()" style="margin-top: 15px;"><i class="fa-regular fa-calendar-check"></i> Book New Appointment</button>
+                <button class="btn" onclick="openModal()" style="margin-top: 10px;"><i class="fa-regular fa-calendar-check"></i> Book New Appointment</button>
             </div>
+            
             <div class="card">
-                <h4><i class="fa-solid fa-prescription-bottle-medical" style="color: #25D366;"></i> Your Digital Prescriptions</h4>
-                <div id="patient-reports-list">
-                    <p style="color: #888; font-style: italic;">Fetching your prescriptions...</p>
-                </div>
+                <h4 style="color: #0b3d60;"><i class="fa-solid fa-calendar-lines-pen"></i> Your Appointments & Doctor's Reply</h4>
+                <div id="patient-appointments-list"><p style="color:#888;">Fetching appointments...</p></div>
+            </div>
+
+            <div class="card">
+                <h4 style="color: #25D366;"><i class="fa-solid fa-prescription-bottle-medical"></i> Your Digital Prescriptions</h4>
+                <div id="patient-reports-list"><p style="color:#888;">Fetching prescriptions...</p></div>
             </div>
         </div>
 
         <div id="admin-section" class="portal-section">
             <div class="card" style="border-top: 5px solid #0b3d60;">
                 <h3><i class="fa-solid fa-user-md"></i> Doctor Admin Panel</h3>
-                <p>Welcome Dr. Usama. Manage your patients and issue digital prescriptions from here.</p>
             </div>
+            
+            <div class="card">
+                <h4 style="margin-top:0; color:#0b3d60; font-size:22px;">Recent Appointments & Requests</h4>
+                <input type="text" id="search-appointment" class="search-bar" placeholder="Search Patient Name or Number..." onkeyup="searchAppointments()">
+                <div style="overflow-x:auto;">
+                    <table id="admin-appointments-table">
+                        <thead>
+                            <tr>
+                                <th>Sr.</th>
+                                <th>Patient Details</th>
+                                <th>Reason / Problem</th>
+                                <th>Visit Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-appointments-body"></tbody>
+                    </table>
+                </div>
+            </div>
+
             <div class="card">
                 <h4 style="margin-top:0; color:#0b3d60; font-size:22px;">Write New Prescription</h4>
                 <form id="upload-report-form" onsubmit="uploadPrescription(event)">
                     <div class="form-group">
                         <label>Patient User ID (UID) *</label>
-                        <input type="text" id="target-patient-uid" required placeholder="Click 'Auto Fill' from the table below">
+                        <input type="text" id="target-patient-uid" required placeholder="Copy from table below">
                     </div>
                     <div class="form-group">
                         <label>Visit Title & Date *</label>
@@ -274,20 +237,22 @@
                     </div>
                     <div class="form-group">
                         <label>Medicines & Instructions *</label>
-                        <textarea id="report-text" rows="6" required placeholder="1. Panadol - Subah Sham&#10;2. Augmentin 625mg - Subah Sham..."></textarea>
+                        <textarea id="report-text" rows="5" required placeholder="1. Panadol..."></textarea>
                     </div>
-                    <button type="submit" class="submit-btn" id="upload-btn"><i class="fa-solid fa-paper-plane"></i> Save & Send Prescription</button>
+                    <button type="submit" class="submit-btn" id="upload-btn">Save & Send Prescription</button>
                 </form>
             </div>
+
             <div class="card">
-                <h4 style="margin-top:0; color:#0b3d60; font-size:22px;">Registered Patients List</h4>
+                <h4 style="margin-top:0; color:#0b3d60; font-size:22px;">All Registered Patients</h4>
+                <input type="text" id="search-patients" class="search-bar" placeholder="Search Patients..." onkeyup="searchPatients()">
                 <div style="overflow-x:auto;">
                     <table id="patients-table">
                         <thead>
                             <tr>
+                                <th>Sr.</th>
                                 <th>Patient Name</th>
                                 <th>Email / UID</th>
-                                <th>Latest Appointment</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -297,23 +262,29 @@
             </div>
         </div>
     </div>
+
     <div id="appointmentModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div id="formSection">
                 <h3 style="color: #0b3d60; margin-top: 0; font-size: 26px;">Book Appointment</h3>
-                <p style="color: #666; margin-bottom: 25px;">Fill the details below to schedule your visit.</p>
+                <p style="color: #666; margin-bottom: 20px;">Fill the details below. The doctor will reply to you on your portal.</p>
                 <form id="bookingForm" onsubmit="submitForm(event)">
-                    <div class="form-group"><label>Full Name *</label><input type="text" name="name" required></div>
-                    <div class="form-group"><label>Phone Number *</label><input type="text" name="phone" required></div>
-                    <div class="form-group"><label>Preferred Date *</label><input type="date" name="date" required></div>
                     <div class="form-group">
-                        <label>Reason for Visit</label>
-                        <select name="reason">
-                            <option value="General Checkup">General Checkup</option>
-                            <option value="Emergency Consult">Emergency Consult</option>
-                            <option value="Follow-up">Follow-up</option>
-                        </select>
+                        <label>Full Name *</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Active Mobile Number *</label>
+                        <input type="text" name="activePhone" required placeholder="03001234567">
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Date *</label>
+                        <input type="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Detailed Reason / Problem *</label>
+                        <textarea name="reason" rows="3" required placeholder="Apna masla tafseel se yahan likhein..."></textarea>
                     </div>
                     <button type="submit" class="submit-btn" id="submitBtn">Confirm Appointment</button>
                 </form>
@@ -321,11 +292,19 @@
         </div>
     </div>
 
-    <script>
-        // Aapka Google Apps Script Link
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxpbDHF7dtntn6N-xfvSobDMWdblId8nhP6TkZ0kBqDS8b739ZVJQ04734eX4kA5SQ/exec'; 
+    <div id="replyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeReplyModal()">&times;</span>
+            <h3 style="color: #0b3d60; margin-top: 0;">Reply to Patient</h3>
+            <textarea id="doctor-reply-text" rows="4" style="width:100%; padding:10px; border-radius:5px; margin-bottom:15px;" placeholder="e.g. Aap shaam 5 baje aa jayen..."></textarea>
+            <input type="hidden" id="reply-appointment-id">
+            <button class="submit-btn" onclick="sendReply()">Send Reply</button>
+        </div>
+    </div>
 
-        // Aapki Firebase Config Keys
+    <script>
+        // Google & Firebase Keys
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxpbDHF7dtntn6N-xfvSobDMWdblId8nhP6TkZ0kBqDS8b739ZVJQ04734eX4kA5SQ/exec'; 
         const firebaseConfig = {
             apiKey: "AIzaSyAFT4n6KTFFS0ObI-7qVMEAHU2ENGwZurw",
             authDomain: "dr-usama-arfi.firebaseapp.com",
@@ -339,158 +318,162 @@
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const db = firebase.firestore();
-
         const adminEmail = "uarajpoot31@gmail.com"; 
         
-        // Track Login Status
         let isUserLoggedIn = false;
+        let lastNotifiedReplyId = null; // To prevent sound spam
 
-        /* --- PROFESSIONAL NOTIFICATION SYSTEM --- */
-        function showNotification(message, type = 'success') {
+        function playAlertSound() {
+            const audio = document.getElementById("alert-sound");
+            audio.play().catch(e => console.log("Audio play blocked by browser", e));
+        }
+
+        function showNotification(message, type = 'success', playSound = false) {
+            if(playSound) playAlertSound();
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
             toast.className = `toast ${type}`;
-            
-            const icon = type === 'success' ? '<i class="fa-solid fa-circle-check"></i>' : '<i class="fa-solid fa-circle-exclamation"></i>';
-            toast.innerHTML = `${icon} <span class="toast-text">${message}</span>`;
-            
+            toast.innerHTML = (type === 'success' ? '<i class="fa-solid fa-circle-check"></i>' : '<i class="fa-solid fa-bell" style="color:#007bff"></i>') + ` <span class="toast-text">${message}</span>`;
             container.appendChild(toast);
-            
             setTimeout(() => toast.classList.add('show'), 10);
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-                setTimeout(() => toast.remove(), 400); 
-            }, 3500);
+            setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 400); }, 5000);
         }
 
-        /* --- UI NAVIGATION LOGIC --- */
         function openPortal() {
             document.getElementById("public-website").style.display = "none";
             document.getElementById("portal-container").style.display = "block";
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
         function closePortal() {
             document.getElementById("public-website").style.display = "block";
             document.getElementById("portal-container").style.display = "none";
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        /* --- FORCED LOGIN APPOINTMENT LOGIC --- */
         function handleAppointmentClick() {
-            if (isUserLoggedIn) {
-                openModal();
-            } else {
-                showNotification("Please sign in to book an appointment.", "error");
-                sessionStorage.setItem('pendingAppointment', 'true');
-                openPortal();
-            }
+            if (isUserLoggedIn) openModal();
+            else { showNotification("Please sign in to book an appointment.", "error"); sessionStorage.setItem('pendingAppointment', 'true'); openPortal(); }
         }
 
-        var modal = document.getElementById("appointmentModal");
-        function openModal() { modal.style.display = "block"; }
-        function closeModal() { modal.style.display = "none"; }
+        function openModal() { document.getElementById("appointmentModal").style.display = "block"; }
+        function closeModal() { document.getElementById("appointmentModal").style.display = "none"; }
+        function openReplyModal(id) { document.getElementById("reply-appointment-id").value = id; document.getElementById("replyModal").style.display = "block"; }
+        function closeReplyModal() { document.getElementById("replyModal").style.display = "none"; document.getElementById("doctor-reply-text").value = ""; }
 
-        /* --- AUTHENTICATION LOGIC --- */
         auth.onAuthStateChanged(user => {
             if (user) {
                 isUserLoggedIn = true;
                 document.getElementById("login-section").classList.remove("active-portal");
                 document.getElementById("user-controls").style.display = "flex";
                 document.getElementById("user-display-name").innerText = user.displayName || "User";
-                document.getElementById("portal-toggle-btn").innerHTML = 'Dashboard <i class="fa-solid fa-table-columns"></i>';
 
                 if (user.email === adminEmail) {
                     document.getElementById("admin-section").classList.add("active-portal");
                     document.getElementById("patient-section").classList.remove("active-portal");
-                    loadPatientsForAdmin();
+                    loadAllAdminData();
                 } else {
                     document.getElementById("patient-section").classList.add("active-portal");
                     document.getElementById("admin-section").classList.remove("active-portal");
-                    
-                    // Basic info save karein, reason sirf tab update hogi jab appointment form fill hoga
-                    db.collection("users").doc(user.uid).set({
-                        name: user.displayName,
-                        email: user.email,
-                        uid: user.uid
-                    }, { merge: true });
-
-                    loadPatientPrescriptions(user.uid);
+                    db.collection("users").doc(user.uid).set({ name: user.displayName, email: user.email, uid: user.uid }, { merge: true });
+                    loadPatientData(user.uid);
                 }
 
                 if (sessionStorage.getItem('pendingAppointment') === 'true') {
                     sessionStorage.removeItem('pendingAppointment');
                     setTimeout(() => { openModal(); }, 800); 
                 }
-
             } else {
                 isUserLoggedIn = false;
                 document.getElementById("login-section").classList.add("active-portal");
                 document.getElementById("patient-section").classList.remove("active-portal");
                 document.getElementById("admin-section").classList.remove("active-portal");
                 document.getElementById("user-controls").style.display = "none";
-                document.getElementById("portal-toggle-btn").innerHTML = 'Patient Portal <i class="fa-solid fa-user-lock"></i>';
             }
         });
 
         function loginWithGoogle() {
             const provider = new firebase.auth.GoogleAuthProvider();
-            auth.signInWithPopup(provider).then(() => {
-                showNotification("Login Successful!", "success");
-            }).catch(error => {
-                showNotification("Login Failed: " + error.message, "error");
-            });
+            auth.signInWithPopup(provider).catch(error => showNotification("Login Failed", "error"));
         }
+        function logout() { auth.signOut().then(() => closePortal()); }
 
-        function logout() {
-            auth.signOut().then(() => {
-                showNotification("Successfully logged out.", "success");
-                closePortal();
-            });
-        }
-
-        /* --- PATIENT LOGIC --- */
-        function loadPatientPrescriptions(uid) {
-            const listDiv = document.getElementById("patient-reports-list");
+        /* --- PATIENT DATA LOADING --- */
+        function loadPatientData(uid) {
+            // Load Prescriptions
             db.collection("reports").where("patientUid", "==", uid).onSnapshot(snapshot => {
-                listDiv.innerHTML = "";
-                if(snapshot.empty) {
-                    listDiv.innerHTML = '<p style="color: #888;">No prescriptions found yet.</p>';
-                    return;
-                }
+                const listDiv = document.getElementById("patient-reports-list");
+                if(snapshot.empty) { listDiv.innerHTML = '<p style="color: #888;">No prescriptions yet.</p>'; return; }
+                let html = "";
                 snapshot.forEach(doc => {
                     const data = doc.data();
-                    const dateObj = data.timestamp ? new Date(data.timestamp.toDate()) : new Date();
-                    const formattedDate = dateObj.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
-                    
-                    listDiv.innerHTML += `
-                        <div class="prescription-item">
-                            <h4>${data.title} <span style="font-size:14px; color:#888; font-weight:normal; background:#f0f0f0; padding:4px 10px; border-radius:20px;">${formattedDate}</span></h4>
-                            <div class="prescription-text">${data.text}</div>
-                        </div>
+                    html += `<div class="prescription-item"><h4>${data.title}</h4><div style="white-space: pre-wrap;">${data.text}</div></div>`;
+                });
+                listDiv.innerHTML = html;
+            });
+
+            // Load Appointments & Replies
+            db.collection("appointments").where("patientUid", "==", uid).orderBy("timestamp", "desc").onSnapshot(snapshot => {
+                const listDiv = document.getElementById("patient-appointments-list");
+                if(snapshot.empty) { listDiv.innerHTML = '<p style="color: #888;">No appointments requested yet.</p>'; return; }
+                let html = "";
+                snapshot.docChanges().forEach(change => {
+                    if(change.type === "modified" && change.doc.data().reply && change.doc.id !== lastNotifiedReplyId) {
+                        showNotification("Doctor Usama has replied to your appointment!", "success", true);
+                        lastNotifiedReplyId = change.doc.id;
+                    }
+                });
+
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    let replyHtml = data.reply ? `<div class="doctor-reply-box"><i class="fa-solid fa-user-doctor"></i> Doctor's Reply: ${data.reply}</div>` : `<p style="color:#f39c12; font-size:13px; margin-top:10px;"><i class="fa-solid fa-clock"></i> Waiting for doctor's reply...</p>`;
+                    html += `<div class="prescription-item" style="border-left-color: #0b3d60;">
+                        <h4>Booking Date: ${data.date}</h4>
+                        <p><strong>Reason:</strong> ${data.reason}</p>
+                        ${replyHtml}
+                    </div>`;
+                });
+                listDiv.innerHTML = html;
+            });
+        }
+
+        /* --- ADMIN DATA LOADING --- */
+        function loadAllAdminData() {
+            // Load Appointments Queue
+            db.collection("appointments").orderBy("timestamp", "desc").onSnapshot(snapshot => {
+                const tbody = document.getElementById("admin-appointments-body");
+                tbody.innerHTML = "";
+                let sr = 1;
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const replyStatus = data.reply ? '<span style="color:green">Replied</span>' : '<span style="color:red">Pending</span>';
+                    tbody.innerHTML += `
+                        <tr class="appointment-row">
+                            <td>${sr++}</td>
+                            <td><strong>${data.name}</strong><br><span style="font-size:13px; color:#666;"><i class="fa-solid fa-phone"></i> ${data.activePhone}</span></td>
+                            <td>${data.reason}</td>
+                            <td>${data.date}<br>${replyStatus}</td>
+                            <td>
+                                <button class="btn" style="padding:6px 10px; font-size:12px;" onclick="openReplyModal('${doc.id}')">Reply</button>
+                            </td>
+                        </tr>
                     `;
                 });
             });
-        }
 
-        /* --- ADMIN LOGIC --- */
-        function loadPatientsForAdmin() {
-            const tbody = document.getElementById("patients-table-body");
+            // Load Patients List
             db.collection("users").onSnapshot(snapshot => {
+                const tbody = document.getElementById("patients-table-body");
                 tbody.innerHTML = "";
+                let sr = 1;
                 snapshot.forEach(doc => {
                     const data = doc.data();
                     if(data.email !== adminEmail) {
-                        const reasonDisplay = data.lastVisitReason || 'No Info';
-                        const dateDisplay = data.lastVisitDate || 'No Date';
-                        
                         tbody.innerHTML += `
-                            <tr>
+                            <tr class="patient-row">
+                                <td>${sr++}</td>
                                 <td><strong>${data.name || 'Anonymous'}</strong><br><span style="font-size:12px; color:#666;">${data.email}</span></td>
-                                <td><code style="background:#f4f7f6; padding:5px 8px; border-radius:4px; font-size:13px;">${data.uid}</code></td>
-                                <td><span style="font-size:14px; font-weight:bold; color:#0b3d60;">${reasonDisplay}</span><br><span style="font-size:12px; color:#888;">${dateDisplay}</span></td>
-                                <td><button class="btn" style="padding:8px 12px; font-size:13px; background:#25D366;" onclick="copyData('${data.uid}', '${reasonDisplay}', '${dateDisplay}')"><i class="fa-solid fa-wand-magic-sparkles"></i> Auto Fill</button></td>
+                                <td><code>${data.uid}</code></td>
+                                <td><button class="btn" style="padding:6px 10px; font-size:12px;" onclick="document.getElementById('target-patient-uid').value='${data.uid}'; window.scrollTo(0, document.getElementById('upload-report-form').offsetTop - 100);">Copy UID</button></td>
                             </tr>
                         `;
                     }
@@ -498,83 +481,72 @@
             });
         }
 
-        // New Auto Fill Function
-        function copyData(uid, reason, date) {
-            document.getElementById("target-patient-uid").value = uid;
-            
-            let titleText = "Medical Checkup";
-            if(reason !== 'No Info' && date !== 'No Date') {
-                titleText = reason + " - " + date;
-            }
-            document.getElementById("report-title").value = titleText;
-            
-            showNotification("Data Auto-filled Successfully!", "success");
-            window.scrollTo({ top: document.getElementById("upload-report-form").offsetTop - 100, behavior: 'smooth' });
+        /* --- ADMIN ACTIONS --- */
+        function sendReply() {
+            const id = document.getElementById("reply-appointment-id").value;
+            const text = document.getElementById("doctor-reply-text").value;
+            if(!text) return;
+            db.collection("appointments").doc(id).update({ reply: text }).then(() => {
+                showNotification("Reply sent to patient successfully!");
+                closeReplyModal();
+            });
         }
 
         function uploadPrescription(e) {
             e.preventDefault();
-            const uid = document.getElementById("target-patient-uid").value;
-            const title = document.getElementById("report-title").value;
-            const text = document.getElementById("report-text").value;
-            const btn = document.getElementById("upload-btn");
-
-            btn.innerHTML = "<i class='fa-solid fa-spinner fa-spin'></i> Saving...";
-            btn.disabled = true;
-
             db.collection("reports").add({
-                patientUid: uid,
-                title: title,
-                text: text,
+                patientUid: document.getElementById("target-patient-uid").value,
+                title: document.getElementById("report-title").value,
+                text: document.getElementById("report-text").value,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             }).then(() => {
-                showNotification("Prescription successfully saved & sent!", "success");
+                showNotification("Prescription Saved!");
                 document.getElementById("upload-report-form").reset();
-                btn.innerHTML = "<i class='fa-solid fa-paper-plane'></i> Save & Send Prescription";
-                btn.disabled = false;
-            }).catch(err => {
-                showNotification("Error: " + err.message, "error");
-                btn.innerHTML = "<i class='fa-solid fa-paper-plane'></i> Save & Send Prescription";
-                btn.disabled = false;
             });
         }
 
-        /* --- APPOINTMENT SUBMIT LOGIC (Updated to save Reason in Firebase) --- */
+        /* --- SUBMIT APPOINTMENT --- */
         function submitForm(e) {
             e.preventDefault();
-            var btn = document.getElementById("submitBtn");
-            btn.innerText = "Submitting...";
-            btn.disabled = true;
+            const btn = document.getElementById("submitBtn");
+            btn.innerText = "Submitting..."; btn.disabled = true;
             
-            var form = document.getElementById("bookingForm");
-            var formData = new FormData(form);
-            var urlEncodedData = new URLSearchParams(formData);
+            const form = document.getElementById("bookingForm");
+            const formData = new FormData(form);
             
-            // Firebase Update: Patient Reason aur Date save karna
+            // Save strictly to Firestore so Admin can reply
             if (auth.currentUser) {
-                db.collection("users").doc(auth.currentUser.uid).set({
-                    lastVisitReason: formData.get("reason"),
-                    lastVisitDate: formData.get("date"),
-                    phone: formData.get("phone")
-                }, { merge: true });
+                db.collection("appointments").add({
+                    patientUid: auth.currentUser.uid,
+                    name: formData.get("name"),
+                    activePhone: formData.get("activePhone"),
+                    date: formData.get("date"),
+                    reason: formData.get("reason"),
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                    reply: "" // Empty initially
+                }).then(() => {
+                    // Also send to Google Sheets
+                    fetch(scriptURL, { method: 'POST', body: new URLSearchParams(formData) }).catch(err=>console.log(err));
+                    showNotification("Appointment Request Sent! Check Dashboard for reply.");
+                    closeModal(); btn.innerText = "Confirm Appointment"; btn.disabled = false; form.reset();
+                });
             }
+        }
 
-            // Google Sheet Data Send
-            fetch(scriptURL, { method: 'POST', body: urlEncodedData, headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
-            .then(response => { 
-                showNotification("Appointment Request Sent Successfully!", "success");
-                closeModal(); 
-                btn.innerText = "Confirm Appointment"; 
-                btn.disabled = false; 
-                form.reset(); 
-            })
-            .catch(error => { 
-                showNotification("Appointment Request Sent Successfully!", "success");
-                closeModal(); 
-                btn.innerText = "Confirm Appointment"; 
-                btn.disabled = false; 
-                form.reset();
-            });
+        /* --- SEARCH FUNCTIONS --- */
+        function searchAppointments() {
+            let filter = document.getElementById("search-appointment").value.toLowerCase();
+            let rows = document.getElementsByClassName("appointment-row");
+            for (let i = 0; i < rows.length; i++) {
+                rows[i].style.display = rows[i].innerText.toLowerCase().includes(filter) ? "" : "none";
+            }
+        }
+        function searchPatients() {
+            let filter = document.getElementById("search-patients").value.toLowerCase();
+            let rows = document.getElementsByClassName("patient-row");
+            for (let i = 0; i < rows.length; i++) {
+                rows[i].style.display = rows[i].innerText.toLowerCase().includes(filter) ? "" : "none";
+            }
         }
     </script>
 </body>
