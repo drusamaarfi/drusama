@@ -127,23 +127,43 @@
             .login-wrapper { flex-direction: column; }
             .login-info { width: 100%; padding: 40px 30px; box-sizing: border-box; }
             .login-box-new { width: 100%; padding: 50px 30px; box-sizing: border-box; }
+            /* New Header Navigation Styles */
+        .nav-links { display: flex; align-items: center; gap: 20px; }
+        .nav-links a { text-decoration: none; color: #0b3d60; font-weight: 700; font-size: 16px; transition: 0.3s; }
+        .nav-links a:hover { color: #25D366; }
+        .appointment-btn { background-color: transparent; border: 2px solid #0b3d60; color: #0b3d60; padding: 8px 18px; border-radius: 8px; font-weight: 600; font-size: 15px; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .appointment-btn:hover { background-color: #0b3d60; color: white; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(11, 61, 96, 0.2); }
+        
+        @media (max-width: 900px) {
+            header { flex-direction: column; gap: 15px; padding: 15px 5%; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 12px; }
+            .nav-links a { font-size: 14px; }
+            .appointment-btn, .header-btn { padding: 8px 12px; font-size: 13px; }
+        }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
+    <!-- Header Navigation (Updated with Menus) -->
     <header>
         <div class="logo">
             <i class="fa-solid fa-stethoscope"></i> DR. USAMA ARFI
         </div>
-        <div>
+        <div class="nav-links">
+            <a href="javascript:void(0)" onclick="closePortal(); document.querySelector('.services').scrollIntoView({behavior: 'smooth'});">Services</a>
+            
+            <a href="javascript:void(0)" onclick="closePortal(); document.querySelector('footer').scrollIntoView({behavior: 'smooth'});">Contact</a>
+            
+            <button class="appointment-btn" onclick="openModal()">
+                <i class="fa-regular fa-calendar-check"></i> Appointment
+            </button>
+            
             <button class="header-btn" id="portal-toggle-btn" onclick="openPortal()">
                 Patient Portal <i class="fa-solid fa-user-lock"></i>
             </button>
         </div>
     </header>
-
     <!-- ================= PUBLIC WEBSITE ================= -->
     <div id="public-website">
         <section class="hero">
