@@ -7,6 +7,7 @@
     <link rel="icon" href="./favicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
@@ -109,6 +110,7 @@
 </head>
 <body>
 
+    <!-- Notification Alert Sound (Hidden) -->
     <audio id="alert-sound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
 
     <div id="toast-container"></div>
@@ -158,6 +160,7 @@
     </div>
 
 
+    <!-- SECURE PORTAL SYSTEM -->
     <div id="portal-container">
         <div class="portal-header">
             <button class="back-btn" onclick="closePortal()"><i class="fa-solid fa-arrow-left"></i> Back to Website</button>
@@ -183,6 +186,7 @@
             </div>
         </div>
 
+        <!-- PATIENT DASHBOARD -->
         <div id="patient-section" class="portal-section">
             <div class="card" style="border-top: 5px solid #25D366;">
                 <h3><i class="fa-solid fa-heart-pulse"></i> Your Medical Dashboard</h3>
@@ -200,11 +204,13 @@
             </div>
         </div>
 
+        <!-- ADMIN PANEL -->
         <div id="admin-section" class="portal-section">
             <div class="card" style="border-top: 5px solid #0b3d60;">
                 <h3><i class="fa-solid fa-user-md"></i> Doctor Admin Panel</h3>
             </div>
             
+            <!-- Appointments Queue -->
             <div class="card">
                 <h4 style="margin-top:0; color:#0b3d60; font-size:22px;">Recent Appointments & Requests</h4>
                 <input type="text" id="search-appointment" class="search-bar" placeholder="Search Patient Name or Number..." onkeyup="searchAppointments()">
@@ -224,6 +230,7 @@
                 </div>
             </div>
 
+            <!-- Prescription Form -->
             <div class="card">
                 <h4 style="margin-top:0; color:#0b3d60; font-size:22px;">Write New Prescription</h4>
                 <form id="upload-report-form" onsubmit="uploadPrescription(event)">
@@ -243,6 +250,7 @@
                 </form>
             </div>
 
+            <!-- Patient List -->
             <div class="card">
                 <h4 style="margin-top:0; color:#0b3d60; font-size:22px;">All Registered Patients</h4>
                 <input type="text" id="search-patients" class="search-bar" placeholder="Search Patients by Name..." onkeyup="searchPatients()">
@@ -263,6 +271,7 @@
         </div>
     </div>
 
+    <!-- Appointment Form Modal -->
     <div id="appointmentModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
@@ -296,6 +305,7 @@
         </div>
     </div>
 
+    <!-- Doctor Reply Modal -->
     <div id="replyModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeReplyModal()">&times;</span>
@@ -411,23 +421,34 @@
         }
         function logout() { auth.signOut().then(() => closePortal()); }
 
-        /* --- PATIENT DATA LOADING --- */
+        /* --- PATIENT DATA LOADING (FIXED INDEX ERROR) --- */
         function loadPatientData(uid) {
+            
+            // 1. Load Prescriptions
             db.collection("reports").where("patientUid", "==", uid).onSnapshot(snapshot => {
                 const listDiv = document.getElementById("patient-reports-list");
                 if(snapshot.empty) { listDiv.innerHTML = '<p style="color: #888;">No prescriptions yet.</p>'; return; }
+                
+                let reports = [];
+                snapshot.forEach(doc => reports.push(doc.data()));
+                
+                // Sort by timestamp in Javascript
+                reports.sort((a,b) => (b.timestamp?.toMillis()||0) - (a.timestamp?.toMillis()||0));
+
                 let html = "";
-                snapshot.forEach(doc => {
-                    const data = doc.data();
+                reports.forEach(data => {
                     html += `<div class="prescription-item"><h4>${data.title}</h4><div style="white-space: pre-wrap;">${data.text}</div></div>`;
                 });
                 listDiv.innerHTML = html;
             });
 
-            db.collection("appointments").where("patientUid", "==", uid).orderBy("timestamp", "desc").onSnapshot(snapshot => {
+            // 2. Load Appointments (Removed .orderBy() from Firebase query to avoid index block)
+            db.collection("appointments").where("patientUid", "==", uid).onSnapshot(snapshot => {
                 const listDiv = document.getElementById("patient-appointments-list");
                 if(snapshot.empty) { listDiv.innerHTML = '<p style="color: #888;">No appointments requested yet.</p>'; return; }
-                let html = "";
+                
+                let appointments = [];
+                
                 snapshot.docChanges().forEach(change => {
                     if(change.type === "modified" && change.doc.data().reply && change.doc.id !== lastNotifiedReplyId) {
                         showNotification("Doctor Usama has replied to your appointment!", "success", true);
@@ -436,7 +457,16 @@
                 });
 
                 snapshot.forEach(doc => {
-                    const data = doc.data();
+                    let data = doc.data();
+                    data.id = doc.id;
+                    appointments.push(data);
+                });
+
+                // Sort by timestamp in Javascript to bypass Firebase Index requirement
+                appointments.sort((a,b) => (b.timestamp?.toMillis()||0) - (a.timestamp?.toMillis()||0));
+
+                let html = "";
+                appointments.forEach(data => {
                     let replyHtml = data.reply ? `<div class="doctor-reply-box"><i class="fa-solid fa-user-doctor"></i> Doctor's Reply: ${data.reply}</div>` : `<p style="color:#f39c12; font-size:13px; margin-top:10px;"><i class="fa-solid fa-clock"></i> Waiting for doctor's reply...</p>`;
                     html += `<div class="prescription-item" style="border-left-color: #0b3d60;">
                         <h4>Booking Date: ${data.date}</h4>
@@ -552,7 +582,6 @@
                     btn.disabled = false; 
                     form.reset();
                 }).catch(error => {
-                    // YAHAN ERROR CATCH HOGA AGAR DATABASE RULES THEEK NAHI HAIN
                     console.error(error);
                     showNotification("Error: Database permission denied. Please update Firebase Rules.", "error");
                     btn.innerText = "Confirm Appointment"; 
